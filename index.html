@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakxani Graphix | Professional Graphic Designer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* ===== CSS VARIABLES & RESET ===== */
+        :root {
+            --bg-cream: #F5F0E1;
+            --bg-cream-light: #FFF8F0;
+            --primary-brown: #3E2723;
+            --accent-brown: #8D6E63;
+            --text-dark: #2C1B18;
+            --text-light: #5D4037;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #fff8f0, #f4e8dc, #ecd8c1);
+            background-size: 600% 600%;
+            animation: gradientBG 20s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-brown);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul { list-style: none; }
+
+        /* ===== FLOATING BACKGROUND SHAPES ===== */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            filter: blur(60px);
+            z-index: -1;
+            animation: float 10s ease-in-out infinite;
+        }
+        .shape1 { width: 300px; height: 300px; background: #8D6E63; top: -5%; left: -5%; animation-delay: 0s; }
+        .shape2 { width: 250px; height: 250px; background: #D7CCC8; top: 40%; right: -10%; animation-delay: 2s; }
+        .shape3 { width: 200px; height: 200px; background: #A1887F; bottom: 10%; left: 20%; animation-delay: 4s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 248, 240, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(62, 39, 35, 0.1);
+            box-shadow: 0 4px 20px rgba(62, 39, 35, 0.05);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-brown);
+        }
+
+        .logo span { color: var(--accent-brown); }
+
+        .nav-links { display: flex; gap: 2rem; }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-brown);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Mobile Menu Icon */
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-brown); }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--primary-brown);
+            color: var(--bg-cream-light);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 10px 25px rgba(62, 39, 35, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-brown);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(141, 110, 99, 0.3);
+        }
+
+        /* ===== SECTION GENERAL ===== */
+        section { padding: 6rem 8%; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title .line {
+            width: 80px;
+            height: 3px;
+            background: var(--accent-brown);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(62, 39, 35, 0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: var(--white);
+            box-shadow: 0 15px 40px rgba(62, 39, 35, 0.1);
+            border-color: var(--accent-brown);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-brown), var(--accent-brown));
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ===== PORTFOLIO SECTION - FULL PHOTOS VIEW ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            cursor: pointer;
+            /* Auto height to show full image */
+            height: 92%; 
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(62, 39, 35, 0.9), rgba(62, 39, 35, 0.2));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            color: var(--bg-cream);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .portfolio-item:hover img { transform: scale(1.05); }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+        .portfolio-overlay h3 {
+            color: var(--bg-cream);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .portfolio-overlay p { font-size: 1rem; font-weight: 300; }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-container {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.5);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(62,39,35,0.1);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            background: var(--primary-brown);
+            color: var(--bg-cream-light);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent-brown);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(62, 39, 35, 0.2);
+        }
+
+        .contact-btn i { font-size: 1.4rem; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-brown);
+            color: var(--bg-cream-light);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        /* ===== SCROLL ANIMATION CLASSES ===== */
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0; right: -100%;
+                height: 100vh;
+                width: 70%;
+                background: var(--bg-cream-light);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { right: 0; }
+            .menu-toggle { display: block; }
+            
+            .hero h1 { font-size: 2.8rem; }
+            .hero h2 { font-size: 1.5rem; }
+            section { padding: 4rem 5%; }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Floating Shapes -->
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Lakxani<span>Graphix</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero hidden">
+        <h1>Designs That Define Your Brand</h1>
+        <h2>Professional Graphic Designer</h2>
+        <p>Creating clean, modern, and creative visual experiences to elevate your brand identity.</p>
+        <a href="#contact" class="btn-primary">Hire Me</a>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <div class="section-title hidden">
+            <h2>Our Premium Services</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card hidden">
+                <div class="service-icon"><i class="fas fa-id-card"></i></div>
+                <h3>Visiting Card Design</h3>
+                <p>Clean and memorable business cards to leave a lasting impression.</p>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card hidden">
+                <div class="service-icon"><i class="fas fa-file-image"></i></div>
+                <h3>Poster Design</h3>
+                <p>Eye-catching posters for promotions, events, and branding purposes.</p>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card hidden">
+                <div class="service-icon"><i class="fab fa-instagram"></i></div>
+                <h3>Social Media Posts</h3>
+                <p>High-quality Instagram and Facebook posts to boost engagement.</p>
+            </div>
+            <!-- Service 4 -->
+            <div class="service-card hidden">
+                <div class="service-icon"><i class="fas fa-ad"></i></div>
+                <h3>Banner Design</h3>
+                <p>Dynamic and attractive banners for online and offline campaigns.</p>
+            </div>
+            <!-- Service 5 -->
+            <div class="service-card hidden">
+                <div class="service-icon"><i class="fas fa-envelope-open-text"></i></div>
+                <h3>Wedding / Save the Date</h3>
+                <p>Elegant invitations and memorable designs for weddings and events.</p>
+            </div>
+            <!-- Service 6 -->
+            <div class="service-card hidden">
+                <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                <h3>Menu Design</h3>
+                <p>Stylish and readable menus for restaurants and cafes.</p>
+            </div>
+            <!-- Service 7 -->
+            <div class="service-card hidden">
+                <div class="service-icon"><i class="fas fa-video"></i></div>
+                <h3>Thumbnail Design</h3>
+                <p>Captivating thumbnails for YouTube, social media, or presentations.</p>
+            </div>
+            <!-- Service 8 -->
+            <div class="service-card hidden">
+                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Custom Designs</h3>
+                <p>Unique designs tailored specifically for your brand and style.</p>
+            </div>
+            <!-- Service 9 -->
+            <div class="service-card hidden">
+                <div class="service-icon"><i class="fas fa-image"></i></div>
+                <h3>Image Editing</h3>
+                <p>Professional photo editing, retouching, and optimization.</p>
+            </div>
+            <!-- Service 10 -->
+            <div class="service-card hidden">
+                <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>CV / Resume Design</h3>
+                <p>Modern resumes that help you stand out professionally.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION - FULL PHOTOS -->
+    <section id="portfolio">
+        <div class="section-title hidden">
+            <h2>Selected Work</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item hidden">
+                <!-- Local Image - Full Photo View -->
+                <img src="photo1.jpg" alt="Poster Design">
+                <div class="portfolio-overlay">
+                    <h3>Poster Design</h3>
+                    <p>Creative promotional design</p>
+                </div>
+            </div>
+            <div class="portfolio-item hidden">
+                <img src="photo2.jpg" alt="Social Media Post">
+                <div class="portfolio-overlay">
+                    <h3>Social Media</h3>
+                    <p>Instagram branding design</p>
+                </div>
+            </div>
+            <div class="portfolio-item hidden">
+                <img src="photo3.png" alt="Brand Identity">
+                <div class="portfolio-overlay">
+                    <h3>Brand Identity</h3>
+                    <p>Logo & Packaging Design</p>
+                </div>
+            </div>
+            <div class="portfolio-item hidden">
+                <img src="photo4.png" alt="Web UI Design">
+                <div class="portfolio-overlay">
+                    <h3>Wedding Invition Design</h3>
+                    <p>Wedding Invitions and Save The Date</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="contact-container hidden">
+            <div class="section-title">
+                <h2>Let's Work Together</h2>
+                <div class="line"></div>
+            </div>
+            <p style="margin-top: 1rem; color: var(--text-light);">Have a project in mind? Contact me directly!</p>
+            
+            <div class="contact-links">
+                <a href="https://wa.me/917726941159" class="contact-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://www.instagram.com/lakxani_graphix" class="contact-btn" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Lakxani Graphix | Designed by Animesh Charnal</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Animation (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>
